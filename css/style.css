@@ -110,10 +110,13 @@ button{ font-family:inherit; cursor:pointer; }
 /* ============================== HEADER ============================== */
 .site-header{
   position:fixed; top:0; left:0; right:0; z-index:100;
-  background:rgba(255,255,255,.88);
-  backdrop-filter:blur(10px);
   border-bottom:1px solid transparent;
   transition:border-color .25s ease, box-shadow .25s ease;
+}
+.site-header::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(10px);
 }
 .site-header.scrolled{ border-color:var(--line); box-shadow:0 2px 16px rgba(12,31,40,.06); }
 .site-header .container{
@@ -395,7 +398,7 @@ button{ font-family:inherit; cursor:pointer; }
 .team-card:hover{ box-shadow:var(--shadow-md); border-color:var(--primary-light); }
 .team-photo{ position:relative; background:var(--bg-dark); overflow:hidden; }
 .team-photo img{
-  width:100%; height:100%; object-fit:cover; display:block;
+  width:100%; height:100%; object-fit:cover; object-position:center 12%; display:block;
   filter:grayscale(60%) contrast(1.05);
   mix-blend-mode:luminosity;
 }
@@ -418,7 +421,7 @@ button{ font-family:inherit; cursor:pointer; }
 }
 @media (max-width:520px){
   .team-card{ grid-template-columns:1fr; }
-  .team-photo{ height:220px; }
+  .team-photo{ height:360px; }
 }
 
 /* ===================== CONTATO ===================== */
